@@ -27,6 +27,12 @@ def client():
 # ---------------------------------------------
 # Test Function: test_add_api
 # ---------------------------------------------
+def test_main_endpoint(client):
+    response = client.get('/')
+    
+    # Assert that the response status code is 200 (OK)
+    assert response.status_code == 200, f"Expected status code 200, got {response.status_code}"
+
 
 def test_add_api(client):
     """

@@ -1,6 +1,14 @@
 # tests/e2e/test_e2e.py
 
 import pytest  # Import the pytest framework for writing and running tests
+import re
+from playwright.sync_api import Page, expect
+
+def test_has_title(page: Page):
+    page.goto("http://localhost:8000")
+
+    # Expect a title "to contain" a substring.
+    expect(page).to_have_title(re.compile("Hello World & Calculator Demo"))
 
 # The following decorators and functions define E2E tests for the FastAPI calculator application.
 
